@@ -37,24 +37,11 @@ int main(int argc, char** argv) {
             perror("MMAP");
             return -42;
         }
-        
+o        
         for (int ix = 0; ix < N; ++ix) mem[ix] = 'a' + ix;
         std::cerr << "Waiting...\n";
         std::this_thread::sleep_for(30s);
     }
     else if (md == 'r') {
-        auto fd = shm_open(fn, O_RDONLY, 0600);
-        if (fd < 0) {
-            perror("SHM");
-            return -42;
-        }
-        
-        auto mem = (char*) mmap(nullptr, N, PROT_READ, MAP_SHARED, fd, 0);
-        if (mem == MAP_FAILED) {
-            perror("MMAP");
-            return -42;
-        }
-
-        for (int ix = 0; ix < N; ++ix) std::cerr << mem[ix] << '\n'; 
     }
 }
