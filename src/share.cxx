@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
             perror("MMAP");
             return -42;
         }
-o        
+
         for (int ix = 0; ix < N; ++ix) mem[ix] = 'a' + ix;
         std::cerr << "Waiting...\n";
         std::this_thread::sleep_for(30s);

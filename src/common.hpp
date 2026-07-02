@@ -22,7 +22,7 @@ using f64x3 = v3<f64>;
 
 using matrix = f64 * sap_noalias;
 
-template<int N>
+template<u64 N>
 using Matrix = Eigen::Matrix<f64, N, N>;
-template<int N>
+template<u64 N>
 using Vector = Eigen::Vector<f64, N>;
